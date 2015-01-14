@@ -1,0 +1,18 @@
+{
+  "name": "openclerk/api-list",
+  "description": "A library for listing and discovering runtime properties of APIs",
+  "autoload": {
+    "psr-4": {
+      "Apis\\ApiList\\": "src"
+    }
+  },
+  "require": {
+    "openclerk/apis": "dev-master"
+  },
+  "require-dev": {
+    "soundasleep/component-tests": "dev-master"
+  },
+  "suggest": {
+    "openclerk/cache": "For cacheable APIs"
+  }
+}
