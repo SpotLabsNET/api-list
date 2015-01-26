@@ -1,46 +1,9 @@
 <?php
 
+namespace Apis\ApiList\Tests;
+
 use \Apis\ApiList\ApiLister;
 use \Apis\Api;
-
-/**
- * A simple test API.
- *
- * This is an extended description.
- */
-class SimpleTestApi extends Api {
-
-  function getJSON($arguments) {
-    return array();
-  }
-
-  function getEndpoint() {
-    return "/api/v1/simple";
-  }
-
-}
-
-/**
- * An advanced
- * test API.
- *
- * This is an extended description.
- *
- * It spans multiple lines.
- *
- * @param currency   the currency to use
- */
-class AdvancedTestApi extends Api {
-
-  function getJSON($arguments) {
-    return array();
-  }
-
-  function getEndpoint() {
-    return "/api/v1/:currency";
-  }
-
-}
 
 class DocCommentTest extends \PHPUnit_Framework_TestCase {
 

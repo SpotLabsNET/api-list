@@ -3,7 +3,8 @@
   "description": "A library for listing and discovering runtime properties of APIs",
   "autoload": {
     "psr-4": {
-      "Apis\\ApiList\\": "src"
+      "Apis\\ApiList\\": "src",
+      "Apis\\ApiList\\Tests\\": "test"
     }
   },
   "require": {
