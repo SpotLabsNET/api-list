@@ -32,8 +32,7 @@ abstract class ApiListApi extends Api {
   }
 
   function getEndpoint() {
-    return "/api/v1/simple";
+    return "/api/v1/apis";
   }
-
 
 }
