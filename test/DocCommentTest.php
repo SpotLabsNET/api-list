@@ -27,7 +27,8 @@ class DocCommentTest extends \PHPUnit_Framework_TestCase {
     $api = $lister->processAPI(new SimpleTestApi());
 
     $this->assertEquals("/api/v1/simple", $api['endpoint']);
-    $this->assertEquals("A simple test API", $api['title']);
+    $this->assertEquals("A simple test API.", $api['title']);
+    $this->assertEquals("This is an extended description.", $api['description']);
   }
 
 }
