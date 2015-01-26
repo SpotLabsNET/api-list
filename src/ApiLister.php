@@ -39,13 +39,15 @@ class ApiLister {
       $line = preg_replace("#^\\s*/\\*+\\s*#", "", $line);
       $line = preg_replace("#\\s*\\*/$#", "", $line);
       $line = preg_replace("#^\\s*\\*\\s*#", "", $line);
+      $line = preg_replace("#\\s+#", " ", $line);
 
       if (trim($line)) {
+        $previous = trim($previous . " " . $line);
+      } else {
         if ($previous) {
           $result[] = $previous;
           $previous = "";
         }
-        $previous = trim($previous . " " . $line);
       }
     }
     if ($previous) {
@@ -61,15 +63,32 @@ class ApiLister {
 
   function getDescription($comment) {
     $lines = $this->getLines($comment);
-    if (count($lines) > 1) {
-      unset($lines[0]);
-      return implode("\n", $lines);
+    $result = array();
+    for ($i = 1; $i < count($lines); $i++) {
+      if (substr($lines[$i], 0, 1) !== "@") {
+        $result[] = $lines[$i];
+      }
     }
-    return null;
+    return implode("\n", $result);
   }
 
   function getParams($comment) {
-    return $comment;
+    $lines = $this->getLines($comment);
+    $result = array();
+    for ($i = 1; $i < count($lines); $i++) {
+      if (substr($lines[$i], 0, strlen("@param")) == "@param") {
+        $bits = explode(" ", $lines[$i], 3);
+        switch (count($bits)) {
+          case 3:
+            $result[$bits[1]] = $bits[2];
+            break;
+          case 2:
+            $result[] = $bits[2];
+            break;
+        }
+      }
+    }
+    return $result;
   }
 
 }
