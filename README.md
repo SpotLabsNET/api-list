@@ -30,3 +30,21 @@ class MyApiListApi extends \Apis\ApiList\ApiListApi {
 
 }
 ```
+
+You can also get all runtime API information like so:
+
+```php
+$lister = new \Apis\ApiList\ApiLister();
+$apis = $lister->processAPIs(\DiscoveredComponents\Apis::getAllInstances());
+
+foreach ($apis as $api) {
+  print_r(array(
+    $api['endpoint'],
+    $api['title'],
+    $api['description'],
+    $api['params'],   // array
+    // ...
+  ));
+}
+```
+

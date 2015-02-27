@@ -42,7 +42,14 @@ class ApiLister {
       $line = preg_replace("#\\s+#", " ", $line);
 
       if (trim($line)) {
-        $previous = trim($previous . " " . $line);
+        if (substr(trim($line), 0, 1) == "@") {
+          if ($previous) {
+            $result[] = $previous;
+          }
+          $previous = trim($line);
+        } else {
+          $previous = trim($previous . " " . $line);
+        }
       } else {
         if ($previous) {
           $result[] = $previous;

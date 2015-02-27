@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\ApiList\Tests;
+namespace Apis\ApiList\Tests\Apis;
 
 use \Apis\Api;
 

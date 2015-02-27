@@ -1,6 +1,6 @@
 <?php
 
-namespace Apis\ApiList\Tests;
+namespace Apis\ApiList\Tests\Apis;
 
 use \Apis\Api;
 
@@ -13,15 +13,18 @@ use \Apis\Api;
  * It spans multiple lines.
  *
  * @param currency   the currency to use
+ * @param foo another parameter
+ * @param bar another parameter
+ *      across multiple lines
  */
-class AdvancedTestApi extends Api {
+class MultipleParamsApi extends Api {
 
   function getJSON($arguments) {
     return array();
   }
 
   function getEndpoint() {
-    return "/api/v1/:currency";
+    return "/api/v2/:currency";
   }
 
 }

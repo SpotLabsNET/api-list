@@ -9,8 +9,9 @@ class ApiListApiTestApi extends ApiListApi {
 
   function getAPIs() {
     return array(
-      new SimpleTestApi(),
-      new AdvancedTestApi(),
+      new Apis\SimpleTestApi(),
+      new Apis\AdvancedTestApi(),
+      new Apis\MultipleParamsApi(),
     );
   }
 
@@ -24,6 +25,7 @@ class ApiListApiTest extends \PHPUnit_Framework_TestCase {
 
     $this->assertEquals('/api/v1/simple', $json[0]['endpoint']);
     $this->assertEquals('/api/v1/:currency', $json[1]['endpoint']);
+    $this->assertEquals('/api/v2/:currency', $json[2]['endpoint']);
   }
 
 }
