@@ -1,4 +1,4 @@
-openclerk/api-list
+openclerk/api-list [![Build Status](https://travis-ci.org/openclerk/api-list.svg?branch=master)](https://travis-ci.org/openclerk/api-list)
 ==================
 
 A library for listing and discovering runtime properties of APIs
